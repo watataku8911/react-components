@@ -2,11 +2,12 @@ import React, { useCallback, useState } from "react";
 import TextInput from "../components/TextInput";
 import TextDetail from "../components/TextDetail";
 import CheckBox from "../components/CheckBox";
+import Button from "../components/Button";
 
 const UIKit = () => {
   const [text, setText] = useState<string>("");
   const [detail, setDetail] = useState<string>("");
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState<boolean>(false);
 
   const inputText = useCallback(
     (event) => {
@@ -14,15 +15,21 @@ const UIKit = () => {
     },
     [setText]
   );
+
   const inputDetail = useCallback(
     (event) => {
       setDetail(event.target.value);
     },
     [setDetail]
   );
+
   const changeDisabled = useCallback(() => {
     setChecked(!checked);
   }, [checked]);
+
+  const submit = useCallback(() => {
+    alert("submitしました");
+  }, []);
 
   return (
     <div className="uikit">
@@ -49,6 +56,7 @@ const UIKit = () => {
         onChange={changeDisabled}
       />
       <div className="module--spacing--small"></div>
+      <Button label={"ボタン"} disabled={!checked} onClick={submit} />
     </div>
   );
 };
