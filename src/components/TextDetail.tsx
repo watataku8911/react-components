@@ -18,10 +18,9 @@ const TextInput = (props: Props) => {
       placeholder={props.placeholder}
       cols={props.cols}
       rows={props.rows}
+      value={props.value}
       onChange={props.onChange}
-    >
-      {props.value}
-    </textarea>
+    ></textarea>
   );
 };
 
