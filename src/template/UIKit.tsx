@@ -4,16 +4,22 @@ import TextDetail from "../components/TextDetail";
 import RadioButton from "../components/RadioButton";
 import CheckBox from "../components/CheckBox";
 import SelectBox from "../components/SelectBox";
+import ImagePreview from "../components/ImagePreview";
+import InputFile from "../components/InputFile";
 import Button from "../components/Button";
 
 const UIKit = () => {
   const [text, setText] = useState<string>("");
   const [detail, setDetail] = useState<string>("");
   const [checked, setChecked] = useState<boolean>(false);
+
   const [optionsRadio, setOptionsRadio] = useState<string[]>([]);
   const [valRadio, setValRadio] = useState<string>("");
+
   const [optionsSelect, setOptionsSelect] = useState<string[]>([]);
   const [valSelect, setValSelect] = useState<string>("");
+
+  const [fileUrl, setFileUrl] = useState<string>("");
 
   useEffect(() => {
     const valueRadio: string[] = ["cat", "dog"];
@@ -54,6 +60,12 @@ const UIKit = () => {
     [setValSelect]
   );
 
+  const onDrop = useCallback((e) => {
+    const imageFile = e.target.files;
+    const imageUrl = URL.createObjectURL(imageFile[0]);
+    setFileUrl(imageUrl);
+  }, []);
+
   const submit = useCallback(() => {
     alert("submitしました");
   }, []);
@@ -83,6 +95,14 @@ const UIKit = () => {
 
       <SelectBox options={optionsSelect} onChange={handleChangeSelect} />
       <p>選択されたもの：{valSelect}</p>
+      <hr></hr>
+
+      <div className="module--spacing--small"></div>
+      <div className="imgContent">
+        <ImagePreview fileUrl={fileUrl} />
+        <InputFile onChange={onDrop} />
+      </div>
+      <div className="module--spacing--small"></div>
       <hr></hr>
 
       <CheckBox

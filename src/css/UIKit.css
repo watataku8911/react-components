@@ -12,7 +12,54 @@
   font-size: 1.5em;
 }
 
+.label {
+  background-color: #fff;
+  padding: 1%;
+  width: 40%;
+  margin: 0 auto;
+  box-shadow: 1px 1px 8px 0px #000;
+  display: block;
+}
+
+.file_input {
+  display: none;
+}
+
 .button {
   font-size: 1.25em;
   width: 200px;
+}
+
+@media screen and (min-width: 1026px) {
+  .imgContent {
+    width: 90%;
+    max-width: 700px;
+    height: 35vh;
+    margin: auto;
+    margin-bottom: 10px;
+    background-color: #ccc;
+    padding-top: 5%;
+  }
+}
+@media screen and (min-width: 482px) and (max-width: 1025px) {
+  .imgContent {
+    width: 90%;
+    max-width: 700px;
+    height: 20vh;
+    margin: auto;
+    margin-bottom: 10px;
+    background-color: #ccc;
+    padding-top: 5%;
+  }
+}
+@media screen and (max-width: 481px) {
+  .imgContent {
+    width: 90%;
+    max-width: 700px;
+    height: 200px;
+    margin: auto;
+    margin-bottom: 10px;
+    background-color: #ccc;
+    padding-top: 5%;
+  }
 }
