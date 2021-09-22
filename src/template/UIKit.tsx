@@ -3,19 +3,24 @@ import TextInput from "../components/TextInput";
 import TextDetail from "../components/TextDetail";
 import RadioButton from "../components/RadioButton";
 import CheckBox from "../components/CheckBox";
+import SelectBox from "../components/SelectBox";
 import Button from "../components/Button";
 
 const UIKit = () => {
   const [text, setText] = useState<string>("");
   const [detail, setDetail] = useState<string>("");
   const [checked, setChecked] = useState<boolean>(false);
-  const [options, setOptions] = useState<string[]>([]);
-  const [val, setVal] = useState<string>("");
+  const [optionsRadio, setOptionsRadio] = useState<string[]>([]);
+  const [valRadio, setValRadio] = useState<string>("");
+  const [optionsSelect, setOptionsSelect] = useState<string[]>([]);
+  const [valSelect, setValSelect] = useState<string>("");
 
   useEffect(() => {
-    const value = ["cat", "dog"];
-    setOptions(value);
-  }, [setOptions]);
+    const valueRadio: string[] = ["cat", "dog"];
+    setOptionsRadio(valueRadio);
+    const valueSelect: string[] = ["Vue.js", "React", "Svelte", "Angular"];
+    setOptionsSelect(valueSelect);
+  }, [setOptionsRadio, setOptionsSelect]);
 
   const inputText = useCallback(
     (event) => {
@@ -25,8 +30,8 @@ const UIKit = () => {
   );
 
   const inputDetail = useCallback(
-    (event) => {
-      setDetail(event.target.value);
+    (e) => {
+      setDetail(e.target.value);
     },
     [setDetail]
   );
@@ -35,12 +40,22 @@ const UIKit = () => {
     setChecked(!checked);
   }, [checked]);
 
+  const handleChangeRadio = useCallback(
+    (e) => {
+      setValRadio(e.target.value);
+    },
+    [setValRadio]
+  );
+
+  const handleChangeSelect = useCallback(
+    (e) => {
+      setValSelect(e.target.value);
+    },
+    [setValSelect]
+  );
+
   const submit = useCallback(() => {
     alert("submitしました");
-  }, []);
-
-  const handleChange = useCallback((e) => {
-    setVal(e.target.value);
   }, []);
 
   return (
@@ -61,8 +76,15 @@ const UIKit = () => {
         value={detail}
         onChange={inputDetail}
       />
-      <RadioButton options={options} onChange={handleChange} />
-      <p>選択されたもの：{val}</p>
+
+      <RadioButton options={optionsRadio} onChange={handleChangeRadio} />
+      <p>選択されたもの：{valRadio}</p>
+      <hr></hr>
+
+      <SelectBox options={optionsSelect} onChange={handleChangeSelect} />
+      <p>選択されたもの：{valSelect}</p>
+      <hr></hr>
+
       <CheckBox
         label={"I checked all input information."}
         name={"agree"}
