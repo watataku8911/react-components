@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useState } from "react";
-import TextInput from "../components/TextInput";
-import TextDetail from "../components/TextDetail";
-import RadioButton from "../components/RadioButton";
-import CheckBox from "../components/CheckBox";
-import SelectBox from "../components/SelectBox";
-import ImagePreview from "../components/ImagePreview";
-import InputFile from "../components/InputFile";
-import Button from "../components/Button";
+import TextInput from "../components/uikit/TextInput";
+import TextDetail from "../components/uikit/TextDetail";
+import RadioButton from "../components/uikit/RadioButton";
+import CheckBox from "../components/uikit/CheckBox";
+import SelectBox from "../components/uikit/SelectBox";
+import ImagePreview from "../components/uikit/ImagePreview";
+import InputFile from "../components/uikit/InputFile";
+import Button from "../components/uikit/Button";
 
 const UIKit = () => {
   const [text, setText] = useState<string>("");
@@ -29,8 +29,8 @@ const UIKit = () => {
   }, [setOptionsRadio, setOptionsSelect]);
 
   const inputText = useCallback(
-    (event) => {
-      setText(event.target.value);
+    (e) => {
+      setText(e.target.value);
     },
     [setText]
   );

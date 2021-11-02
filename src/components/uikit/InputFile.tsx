@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/UIKit.css";
+import "../../css/UIKit.css";
 
 type Props = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
