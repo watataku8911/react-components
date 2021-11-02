@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/ImagePreview.css";
+import "../../css/ImagePreview.css";
 
 type Props = {
   fileUrl: string;

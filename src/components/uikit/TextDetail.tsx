@@ -1,24 +1,26 @@
 import React from "react";
-import "../css/UIKit.css";
+import "../../css/UIKit.css";
 
 type Props = {
-  type: string;
   name: string;
   placeholder: string;
   value: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  cols: number;
+  rows: number;
+  onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
 };
 
 const TextInput = (props: Props) => {
   return (
-    <input
-      className="textBox"
-      type={props.type}
+    <textarea
+      className="textArea"
       name={props.name}
       placeholder={props.placeholder}
+      cols={props.cols}
+      rows={props.rows}
       value={props.value}
       onChange={props.onChange}
-    />
+    ></textarea>
   );
 };
 
