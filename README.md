@@ -10,7 +10,7 @@ $ npx create-react-app {プロジェクト名} --template typescript
 
 - テキストボックス
 - テキストエリア
-- ラジオボタン
+- ラジオボタン 
 - セレクトボックス
 - 画像アップローダー(プレビュー付き)
 - チェックボックス
@@ -23,4 +23,6 @@ $ npx create-react-app {プロジェクト名} --template typescript
 
 ## material-ui
 
-[マニュアル](https://v4.mui.com/)
+- マニュアル
+[使っているバージョン](https://v4.mui.com/)
+[最新バージョン](https://mui.com/getting-started/usage/)
