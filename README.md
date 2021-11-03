@@ -1,6 +1,6 @@
 # react-components
 
-> reactコンポーネントの置き場所です。
+react コンポーネントの置き場所です。
 
 ```
 $ npx create-react-app {プロジェクト名} --template typescript
@@ -22,4 +22,7 @@ $ npx create-react-app {プロジェクト名} --template typescript
 - circle
 
 ## material-ui
-[マニュアル](https://mui.com/getting-started/usage/)
+
+- マニュアル
+[使っているバージョン](https://v4.mui.com/)
+[最新バージョン](https://mui.com/getting-started/usage/)
