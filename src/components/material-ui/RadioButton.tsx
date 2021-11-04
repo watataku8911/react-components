@@ -6,6 +6,7 @@ import {
   FormLabel,
   Radio,
 } from "@material-ui/core";
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 
 type Props = {
   label: string;
@@ -16,11 +17,20 @@ type Props = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
+const useStyles = makeStyles(() =>
+  createStyles({
+    label: {
+      fontSize: 20,
+    },
+  })
+);
+
 const RadioButton = (props: Props) => {
+  const classes = useStyles();
   return (
     <>
       <FormControl>
-        <FormLabel>{props.label}</FormLabel>
+        <FormLabel className={classes.label}>{props.label}</FormLabel>
         <RadioGroup
           aria-label={props.name}
           name={props.name}
