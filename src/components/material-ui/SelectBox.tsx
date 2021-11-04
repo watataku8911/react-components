@@ -6,7 +6,7 @@ type Props = {
   variant: "filled" | "standard" | "outlined" | undefined;
   label: string;
   options: string[];
-  onChange: (e: React.ChangeEvent<{ value: unknown }>) => void;
+  onChange: (event: React.ChangeEvent<{ value: unknown }>) => void;
 };
 const useStyles = makeStyles(() =>
   createStyles({
@@ -22,8 +22,8 @@ const SelectBox = (props: Props) => {
       <FormControl variant={props.variant} className={classes.formControl}>
         <InputLabel>{props.label}</InputLabel>
         <Select onChange={props.onChange}>
-          <MenuItem value="">
-            <em>None</em>
+          <MenuItem value="選択してください">
+            <em>選択してください</em>
           </MenuItem>
           {props.options.map((item: string, index: number) => (
             <MenuItem key={index} value={item}>
