@@ -4,8 +4,8 @@ import {
   FormControl,
   FormControlLabel,
   FormLabel,
+  Radio,
 } from "@material-ui/core";
-import Radio from "@material-ui/core/Radio";
 
 type Props = {
   label: string;

@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import TextInput from "../components/material-ui/TextInput";
 import SubmitButton from "../components/material-ui/SubmitButton";
 import RadioButton from "../components/material-ui/RadioButton";
-//import SelectBox from "../components/material-ui/SelectBox";
+import SelectBox from "../components/material-ui/SelectBox";
 
 const MaterialUi = () => {
   const [text, setText] = useState<string>("");
@@ -12,14 +12,14 @@ const MaterialUi = () => {
   const [optionsRadio, setOptionsRadio] = useState<string[]>([]);
   const [valRadio, setValRadio] = useState<string>("");
 
-  // const [optionsSelect, setOptionsSelect] = useState<string[]>([]);
-  // const [valSelect, setValSelect] = useState<string>("");
+  const [optionsSelect, setOptionsSelect] = useState<string[]>([]);
+  const [valSelect, setValSelect] = useState<string>("");
 
   useEffect(() => {
-    const valueRadio: string[] = ["cat", "dog"];
+    const valueRadio: string[] = ["Vue.js", "React", "Angular", "Svelte"];
     setOptionsRadio(valueRadio);
-    //const valueSelect: string[] = ["Vue.js", "React", "Svelte", "Angular"];
-    //setOptionsSelect(valueSelect);
+    const valueSelect: string[] = ["PHP", "Golang", "JavaScript"];
+    setOptionsSelect(valueSelect);
   }, [setOptionsRadio]);
 
   const inputText = useCallback(
@@ -42,12 +42,12 @@ const MaterialUi = () => {
     [setValRadio]
   );
 
-  // const handleChangeSelect = useCallback(
-  //   (e) => {
-  //     setValSelect(e.target.value as string);
-  //   },
-  //   [setValSelect]
-  // );
+  const handleChangeSelect = useCallback(
+    (e) => {
+      setValSelect(e.target.value as string);
+    },
+    [setValSelect]
+  );
 
   const submit = () => {
     console.log(text + "\n" + detail);
@@ -90,14 +90,22 @@ const MaterialUi = () => {
       <p>選択されたもの：{valRadio}</p>
       <hr></hr>
 
-      {/* <SelectBox
-        label={"カテゴリー"}
+      <SelectBox
+        variant={"standard"}
+        label={"プログラミング言語"}
         options={optionsSelect}
         onChange={handleChangeSelect}
-      /> */}
+      />
+      <p>選択されたもの：{valSelect}</p>
+      <hr></hr>
 
       <div className="module--spacing--small"></div>
-      <SubmitButton variant={"outlined"} onClick={submit} label={"ボタン"} />
+      <SubmitButton
+        color={"secondary"}
+        variant={"outlined"}
+        onClick={submit}
+        label={"ボタン"}
+      />
     </>
   );
 };
