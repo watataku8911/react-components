@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/styles";
 import { createStyles } from "@material-ui/core";
 
 type Props = {
+  color: "primary" | "secondary" | undefined;
   variant: "text" | "outlined" | "contained" | undefined;
   onClick: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   label: string;
@@ -26,6 +27,7 @@ const SubmitButton = (props: Props) => {
   return (
     <Button
       className={classes.button}
+      color={props.color}
       variant={props.variant}
       onClick={props.onClick}
     >
