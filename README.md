@@ -15,6 +15,7 @@ $ npx create-react-app {プロジェクト名} --template typescript
 - 画像アップローダー(プレビュー付き)
 - チェックボックス
 - ボタン
+- モーダル
 
 ## animation
 
