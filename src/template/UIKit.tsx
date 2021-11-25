@@ -7,6 +7,7 @@ import SelectBox from "../components/uikit/SelectBox";
 import ImagePreview from "../components/uikit/ImagePreview";
 import InputFile from "../components/uikit/InputFile";
 import Button from "../components/uikit/Button";
+import Modal from "../components/uikit/Modal";
 
 const UIKit = () => {
   const [text, setText] = useState<string>("");
@@ -20,6 +21,9 @@ const UIKit = () => {
   const [valSelect, setValSelect] = useState<string>("");
 
   const [fileUrl, setFileUrl] = useState<string>("");
+
+  // モーダルのstate
+  const [open, setOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const valueRadio: string[] = ["cat", "dog"];
@@ -66,8 +70,17 @@ const UIKit = () => {
     setFileUrl(imageUrl);
   }, []);
 
+  const handleOpen = useCallback(() => {
+    setOpen(true);
+  }, [setOpen]);
+
+  const handleClose = useCallback(() => {
+    setOpen(false);
+  }, [setOpen]);
+
   const submit = useCallback(() => {
-    alert("submitしました");
+    alert("submit!!");
+    setOpen(false);
   }, []);
 
   return (
@@ -112,7 +125,19 @@ const UIKit = () => {
         onChange={changeDisabled}
       />
       <div className="module--spacing--small"></div>
-      <Button label={"ボタン"} disabled={!checked} onClick={submit} />
+      <Button
+        label={"モーダルが出ます"}
+        disabled={!checked}
+        onClick={handleOpen}
+      />
+
+      <Modal
+        open={open}
+        title={"モーダルのタイトル"}
+        detail={"モーダルの中身。モーダルの中身。モーダルの中身。"}
+        handleClose={handleClose}
+        onClick={submit}
+      />
     </div>
   );
 };
