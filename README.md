@@ -26,7 +26,7 @@ $ npx create-react-app {プロジェクト名} --template typescript
 
 - マニュアル
 
-[今回、使っているバージョン](https://v4.mui.com/)
+[使うな。最新バージョン推奨！！](https://v4.mui.com/)
 
 ### Material-UIを使う時に入れるパッケージ
 
@@ -47,6 +47,7 @@ $ npm install @material-ui/icons
 $ npm install @material-ui/styles
 ```
 <hr>
+
 ### 最新バージョンでのはじめかた
 
 - マニュアル
