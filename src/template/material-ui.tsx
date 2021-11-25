@@ -131,7 +131,9 @@ const MaterialUi = () => {
         submit={submit}
       />
       <p>
-        <a href="https://v4.mui.com/">あとはこれをみろ。（マニュアル）</a>
+        <a href="https://v4.mui.com/" target="_blank" rel="noreferrer">
+          あとはこれをみろ。（マニュアル）
+        </a>
       </p>
       <hr></hr>
 
