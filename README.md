@@ -28,8 +28,6 @@ $ npx create-react-app {プロジェクト名} --template typescript
 
 [今回、使っているバージョン](https://v4.mui.com/)
 
-[最新バージョン](https://mui.com/getting-started/usage/)
-
 ### Material-UIを使う時に入れるパッケージ
 
 ```
@@ -47,4 +45,13 @@ $ npm install @material-ui/icons
 
 ```
 $ npm install @material-ui/styles
+```
+<hr>
+### 最新バージョンでのはじめかた
+
+- マニュアル
+
+[最新バージョン](https://mui.com/)
+```
+$ npm install @mui/material @emotion/react @emotion/styled
 ```
