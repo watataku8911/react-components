@@ -3,11 +3,14 @@ import { InputLabel, FormControl, Select, MenuItem } from "@material-ui/core";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 
 type Props = {
+  fullwidth: boolean;
   variant: "filled" | "standard" | "outlined" | undefined;
+  value: string;
   label: string;
   options: string[];
   onChange: (event: React.ChangeEvent<{ value: unknown }>) => void;
 };
+
 const useStyles = makeStyles(() =>
   createStyles({
     formControl: {
@@ -21,7 +24,7 @@ const SelectBox = (props: Props) => {
     <>
       <FormControl variant={props.variant} className={classes.formControl}>
         <InputLabel>{props.label}</InputLabel>
-        <Select onChange={props.onChange}>
+        <Select onChange={props.onChange} value={props.value}>
           <MenuItem value="選択してください">
             <em>選択してください</em>
           </MenuItem>
