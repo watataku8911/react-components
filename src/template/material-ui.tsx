@@ -148,8 +148,10 @@ const MaterialUi = () => {
       <p>選択されたもの：{valRadio}</p>
 
       <SelectBox
+        fullwidth={false}
         variant={"standard"}
         label={"プログラミング言語"}
+        value={valSelect}
         options={optionsSelect}
         onChange={handleChangeSelect}
       />

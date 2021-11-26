@@ -3,6 +3,7 @@ import TextInput from "../components/mui/TextInput";
 import SubmitButton from "../components/mui/SubmitButton";
 import MaterialCheckbox from "../components/mui/MaterialCheckBox";
 import MaterialDialog from "../components/mui/MaterialDialog";
+import SelectBox from "../components/mui/SelectBox";
 
 const Mui = () => {
   const [text, setText] = useState<string>("");
@@ -12,6 +13,13 @@ const Mui = () => {
   const [checked, setChecked] = useState<boolean>(false);
 
   const [open, setOpen] = useState<boolean>(false);
+
+  const genders = [
+    { id: "all", name: "すべて" },
+    { id: "male", name: "メンズ" },
+    { id: "female", name: "レディース" },
+  ];
+  const [gender, setGender] = useState<string>("");
 
   const inputText = useCallback(
     (e) => {
@@ -46,6 +54,13 @@ const Mui = () => {
     alert("submit");
     setOpen(false);
   }, []);
+
+  const handleChangeSelect = useCallback(
+    (e) => {
+      setGender(e.target.value as string);
+    },
+    [setGender]
+  );
   return (
     <>
       <TextInput
@@ -113,6 +128,15 @@ const Mui = () => {
         </a>
       </p>
       <hr></hr>
+      <SelectBox
+        fullWidth={true}
+        variant={"standard"}
+        label={"性別"}
+        options={genders}
+        onChange={handleChangeSelect}
+        value={gender}
+      />
+      <p>選択されたもの：{gender}</p>
     </>
   );
 };
