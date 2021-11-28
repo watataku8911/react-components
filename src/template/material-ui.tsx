@@ -140,6 +140,7 @@ const MaterialUi = () => {
       <RadioButton
         label={"ラジオボタン"}
         options={optionsRadio}
+        row={true}
         name="radio-button"
         size={"small"}
         color={"primary"}

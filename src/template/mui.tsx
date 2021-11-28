@@ -4,6 +4,7 @@ import SubmitButton from "../components/mui/SubmitButton";
 import MaterialCheckbox from "../components/mui/MaterialCheckBox";
 import MaterialDialog from "../components/mui/MaterialDialog";
 import SelectBox from "../components/mui/SelectBox";
+import RadioButton from "../components/mui/RadioButton";
 
 const Mui = () => {
   const [text, setText] = useState<string>("");
@@ -20,6 +21,13 @@ const Mui = () => {
     { id: "female", name: "レディース" },
   ];
   const [gender, setGender] = useState<string>("");
+
+  const javascript = [
+    { id: "vuejs", name: "Vue.js" },
+    { id: "react", name: "React" },
+    { id: "angular", name: "Angular" },
+  ];
+  const [valRadio, setValRadio] = useState<string>("");
 
   const inputText = useCallback(
     (e) => {
@@ -61,6 +69,14 @@ const Mui = () => {
     },
     [setGender]
   );
+
+  const handleChangeRadio = useCallback(
+    (e) => {
+      setValRadio((e.target as HTMLInputElement).value);
+    },
+    [setValRadio]
+  );
+
   return (
     <>
       <TextInput
@@ -127,7 +143,6 @@ const Mui = () => {
           あとはこれをみろ。（マニュアル）
         </a>
       </p>
-      <hr></hr>
       <SelectBox
         fullWidth={true}
         variant={"standard"}
@@ -137,6 +152,16 @@ const Mui = () => {
         value={gender}
       />
       <p>選択されたもの：{gender}</p>
+      <RadioButton
+        label={"ラジオボタン"}
+        options={javascript}
+        row={true}
+        name="radio-button"
+        size={"small"}
+        color={"primary"}
+        onChange={handleChangeRadio}
+      />
+      <p>選択されたもの：{valRadio}</p>
     </>
   );
 };

@@ -5,40 +5,34 @@ import {
   FormControlLabel,
   FormLabel,
   Radio,
-} from "@material-ui/core";
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+} from "@mui/material";
 
 type Props = {
   label: string;
-  options: string[];
+  options: Options[];
   row: boolean;
   name: string;
   size: "small" | "medium" | undefined;
   color: "default" | "primary" | "secondary" | undefined;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
-
-const useStyles = makeStyles(() =>
-  createStyles({
-    label: {
-      fontSize: 20,
-    },
-  })
-);
+type Options = {
+  id: string;
+  name: string;
+};
 
 const RadioButton = (props: Props) => {
-  const classes = useStyles();
   return (
     <>
       <FormControl>
-        <FormLabel className={classes.label}>{props.label}</FormLabel>
+        <FormLabel>{props.label}</FormLabel>
         <RadioGroup row={props.row} name={props.name} onChange={props.onChange}>
-          {props.options.map((item: string, index: number) => (
+          {props.options.map((item: Options, index: number) => (
             <FormControlLabel
               key={index}
-              value={item}
-              label={item}
+              value={item.id}
               control={<Radio size={props.size} color={props.color} />}
+              label={item.name}
             />
           ))}
         </RadioGroup>
