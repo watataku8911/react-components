@@ -8,6 +8,7 @@ import ImagePreview from "../components/uikit/ImagePreview";
 import InputFile from "../components/uikit/InputFile";
 import Button from "../components/uikit/Button";
 import Modal from "../components/uikit/Modal";
+import ReactHooksUseModal from "../components/uikit/ReactHooksUseModal";
 
 const UIKit = () => {
   const [text, setText] = useState<string>("");
@@ -137,6 +138,13 @@ const UIKit = () => {
         detail={"モーダルの中身。モーダルの中身。モーダルの中身。"}
         handleClose={handleClose}
         onClick={submit}
+      />
+      <div className="module--spacing--small"></div>
+      <hr></hr>
+
+      <ReactHooksUseModal
+        title="react-hooks-use-modal"
+        detail="react-hooks-use-modalを使用したモーダル"
       />
     </div>
   );
